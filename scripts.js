@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
     let ul = document.createElement('ul');
     document.body.appendChild(ul);
     let liNumber = 1;
-
+    
     let h1 = document.createElement('h1');
     h1.classList.add('h1');
     let h1TextNode = document.createTextNode('This is an h1');
@@ -52,19 +52,18 @@ document.addEventListener('DOMContentLoaded', function (event) {
     });
 
     addButton[0].addEventListener('click', function() {
-        addListItem()
+        addListItem();
     });
 
     // Generate a random color from the array.
     let colorArray = ['green', 'yellow', 'blue', 'red', 'orange', 'pink', 'brown', 'purple']
     function generateRandomColor() {
-        let randomNumber = Math.floor((Math.random() * 8) + 1);
-        return colorArray[randomNumber];
+        return Math.floor((Math.random() * 8));
     }
 
     function changeColor(element) {
-        let randomColor = generateRandomColor();
-        element.style.color = randomColor;
+        let randomNumber = generateRandomColor();
+        element.style.color = colorArray[randomNumber];
     }
 
     function addListItem() {
@@ -75,13 +74,14 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
         // Event listener to change the li's color.
         newListItem.addEventListener('click', function() {
-            let randomColor = generateRandomColor();
-            newListItem.style.color = randomColor;
+            let randomNumber = generateRandomColor();
+            newListItem.style.color = colorArray[randomNumber];
         });
 
+        // Event Listener to remove the li that is double-clicked.
         newListItem.addEventListener('dblclick', function() {
             removeListItem(newListItem);
-        })
+        });
 
         // Appending the li to the dom.
         ul.appendChild(newListItem);
