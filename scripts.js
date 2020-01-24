@@ -51,9 +51,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
         });
     });
 
-    addButton[0].addEventListener('click', function() {
-        addListItem();
-    });
+    addButton[0].addEventListener('click', addListItem);
 
     // Generate a random color from the array.
     let colorArray = ['green', 'yellow', 'blue', 'red', 'orange', 'pink', 'brown', 'purple']
